@@ -1,0 +1,32 @@
+.results {
+  padding: 80px 0 0 0;
+  img {
+    width: 100%;
+  }
+  &__movie {
+    padding-bottom:150%;
+    background-size: cover;
+    position: relative;
+    margin-bottom: 10px;
+    &:hover {
+      cursor:pointer;
+      .tooltip {
+        display: block;
+      }
+    }
+  }
+}
+
+/* ==========================================================================
+  Media Queries
+  ========================================================================== */
+
+@media screen and (min-width: $screen-sm-min) {
+  .results {
+    padding: 50px 0px;
+  }
+}
+@media screen and (min-width: $screen-md-min) {
+}
+@media screen and (min-width: $screen-lg-min) {
+}

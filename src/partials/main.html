@@ -1,0 +1,80 @@
+<div ng-controller="MoviesCtrl">
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+          <div class="header__left">
+            <h1>Angular and OMDB Search</h1>
+            <h2>Search Movie<span>b</span></h2>
+          </div>
+          <div class="header__right">
+            <form class="search-form" ng-submit="submit()" >
+              <input class="search" type="text" ng-model="search" placeholder="Search a movie...">
+              <input type="submit" id="submit" value=""/>  
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-10 col-sm-offset-1">
+          <div class="archive">
+            <div ng-show="archive" class="archive__title">Past Searches:</div>
+            <ul>
+              <li ng-repeat="data in archive" ng-click="prevSearch(data)">
+                {{data.Query}}
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </header>
+  <div class="results">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-sm-4 col-md-3" ng-repeat="movie in results" >
+          <div class="results__movie" style="background-image:url('{{ movie.Poster!='N/A' ? movie.Poster : 'images/no-poster.jpg'}}')" ng-click="openModal(movie.imdbID)">
+            <div class="tooltip-wrapper">
+              <div class="tooltip">{{movie.Title}} ({{movie.Year}})</div>
+            </div>
+          </div>
+          <ul class="ratings" data-rating="{{movie.Rating ? movie.Rating : 0}}" >
+            <li class="star" ng-click="setRating(movie,1)"></li>
+            <li class="star" ng-click="setRating(movie,2)"></li>
+            <li class="star" ng-click="setRating(movie,3)"></li>
+            <li class="star" ng-click="setRating(movie,4)"></li>
+            <li class="star" ng-click="setRating(movie,5)"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <button type="button" class="btn btn-default modal-close" data-dismiss="modal"></button>
+        <div class="row">
+          <div class="col-xs-12 col-sm-8 col-sm-push-4">
+            <div class="modal-right">
+              <h2>{{modalMovie.Title}} ({{modalMovie.Year}})</h2>
+              <dl>
+                <dt>Rated:</dt><dd>{{modalMovie.Rated}}</dd>
+                <dt>Genre:</dt><dd>{{modalMovie.Genre}}</dd>
+                <dt>Runtime:</dt><dd>{{modalMovie.Runtime}}</dd>
+                <dt>Actors: </dt><dd>{{modalMovie.Actors}}</dd>
+              </dl>
+               <p>{{ modalMovie.Plot!='N/A' ? modalMovie.Plot : ''}}</p>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-sm-pull-8">
+            <div class="image-wrap">
+              <img ng-src="{{ modalMovie.Poster!='N/A' ? modalMovie.Poster : 'images/no-poster.jpg'}}" alt="">
+            </div>
+          </div>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+</div>
+
+

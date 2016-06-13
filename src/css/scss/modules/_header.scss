@@ -1,0 +1,105 @@
+header {
+  background:#F2F2F2;
+  text-align: left;
+  padding: 30px 0px;
+  color:#333333;
+  h1 {
+    font-family: $playfair;
+  }
+  h2 {
+    font-family: $karla;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+    span {
+      text-transform: lowercase;
+    }
+  }
+  form {
+    display: block;
+    input[type=text] {
+      height: 45px;
+      border:0px;
+      padding: 15px;
+      font-size: 16px;
+      width:calc(100% - 45px);     
+      float:left;
+      
+    }
+    input[type=submit]{
+      height:45px;
+      width:45px;
+      @include at2x('../images/icon-search','.png',18px,18px);
+      background-position:center;
+      background-color:#333333;
+      background-repeat:no-repeat;
+      border:0px;
+      float:left;
+      &:hover {
+        cursor:pointer;
+        background-color:$blue;
+      }
+    }
+    &.error {
+      .search {
+        background: #D36C74;
+      }
+      &:after {
+        content:'Movie not Found!';
+        display: block;
+        position:absolute;
+        bottom:-5px;
+        color: #D36C74;
+        font-style: italic;
+      }
+    }
+  }
+  .header__left {
+    float:left;
+    position:relative;
+    width:100%;
+    text-align: center;
+  }
+  .header__right {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    float:left;
+    width:100%;
+  }
+}
+
+/* ==========================================================================
+  Media Queries
+  ========================================================================== */
+
+@media screen and (min-width: $screen-sm-min) {
+  header {
+    padding: 50px 0px;
+    .header__left {
+      float:left;
+      margin-right:30px;
+      position:relative;
+      width:auto;
+      &:after {
+        content:'';
+        height: 67px;
+        width:1px;
+        background: #CCC;
+        display: block;
+        position: absolute;
+        right:-14px;
+        top:0px;
+      }
+    }
+    .header__right {
+      margin-top: 10px;
+      float:left;
+      width: calc(100% - 187px);
+    }
+  }
+}
+@media screen and (min-width: $screen-md-min) {
+}
+@media screen and (min-width: $screen-lg-min) {
+}

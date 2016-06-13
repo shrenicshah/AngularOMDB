@@ -1,0 +1,44 @@
+.tooltip {
+  position: absolute;
+  width: 100%;
+  background: #CCC;
+  font-size: 12px;
+  padding: 5px;
+  text-align: center;
+  bottom: 0px;
+  border-radius: 3px;
+  font-weight: bold;
+  &:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 10px 0 10px;
+    border-color: #CCC transparent transparent transparent;
+    position: absolute;
+    left: calc(50% - 5px);
+    bottom: -10px;
+  }
+}
+.tooltip-wrapper {
+  position:absolute;
+  display: block;
+  height:1px;
+  top: -7px;
+  width: 100%;
+}
+
+/* ==========================================================================
+  Media Queries
+  ========================================================================== */
+
+@media screen and (min-width: $screen-sm-min) {
+  .tooltip {
+    display: none;
+  }
+}
+@media screen and (min-width: $screen-md-min) {
+}
+@media screen and (min-width: $screen-lg-min) {
+}

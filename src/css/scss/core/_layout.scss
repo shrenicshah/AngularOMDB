@@ -1,0 +1,33 @@
+/*
+ * Layout
+ */
+
+
+/* ==========================================================================
+  Mobile First
+  ========================================================================== */
+
+.l-site-header {
+  background-color: #eee;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 0;
+}
+
+.l-main {
+  padding: 20px 0;
+}
+
+.l-site-footer {
+}
+
+
+/* ==========================================================================
+  Media Queries
+  ========================================================================== */
+
+@media screen and (min-width: $screen-sm-min) {
+}
+@media screen and (min-width: $screen-md-min) {
+}
+@media screen and (min-width: $screen-lg-min) {
+}
