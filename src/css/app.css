@@ -1425,13 +1425,13 @@ pre {
   margin-bottom: 20px; }
 
 a {
-  color: #2980b9;
+  color: #ffffff;
   text-decoration: none; }
 
 a:active,
 a:focus,
 a:hover {
-  color: #2c3e50; }
+  color: #ffffff; }
 
 code {
   font-family: Menlo, Monaco, "Andale Mono", "Lucida Console", monospace; }

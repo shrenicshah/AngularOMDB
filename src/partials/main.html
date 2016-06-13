@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-xs-12 col-sm-10 col-sm-offset-1">
           <div class="header__left">
-            <h1>Angular and OMDB Search</h1>
-            <h2>Search Movie<span>b</span></h2>
+            <h1>OMDB Movies</h1>
+            <h2>Enter movie to Search</h2>
           </div>
           <div class="header__right">
             <form class="search-form" ng-submit="submit()" >
@@ -63,7 +63,8 @@
                 <dt>Runtime:</dt><dd>{{modalMovie.Runtime}}</dd>
                 <dt>Actors: </dt><dd>{{modalMovie.Actors}}</dd>
               </dl>
-               <p>{{ modalMovie.Plot!='N/A' ? modalMovie.Plot : ''}}</p>
+              <a href="#" ng-model="collapsed" ng-click="collapsed=!collapsed"><strong>{{ modalMovie.Plot | limitTo:10 }}...</strong></a>
+                <div ng-show="collapsed"><p>{{ modalMovie.Plot!='N/A' ? modalMovie.Plot : ''}}</p></div>
             </div>
           </div>
           <div class="col-xs-12 col-sm-4 col-sm-pull-8">
